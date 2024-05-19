@@ -16,13 +16,12 @@ public class Emitter : MonoBehaviour
     {
         initializePool();
         spawn();
-        
     }
 
     private void initializePool()
     {
         pool = new GameObject[MaxParticles];
-        for(int i = 0;i<MaxParticles;i++)
+        for (int i = 0; i < MaxParticles; i++)
         {
             var particle = Instantiate(SpawnPrefab);
             particle.SetActive(false);
@@ -32,10 +31,10 @@ public class Emitter : MonoBehaviour
 
     private void spawn()
     {
-        //spawn particles into scene
-        foreach(var particle in pool)
+        //Spawn the particle into the scene
+        foreach (var particle in pool)
         {
-            if(!particle.activeSelf)
+            if (!particle.activeSelf)
             {
                 particle.transform.position = transform.TransformPoint(Random.insideUnitSphere * 0.5f);
                 particle.transform.localScale = Random.Range(SizeRange.x, SizeRange.y) * Vector3.one;
@@ -45,6 +44,4 @@ public class Emitter : MonoBehaviour
         }
         Invoke("spawn", SpawnRate);
     }
-
-    
 }
