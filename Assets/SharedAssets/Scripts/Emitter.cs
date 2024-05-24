@@ -5,7 +5,7 @@ using UnityEngine;
 public class Emitter : MonoBehaviour
 {
     [SerializeField] private GameObject SpawnPrefab;
-    [SerializeField] private float SpawnRate = 0.1f;
+    [SerializeField] private float SpawnRate = 0.6f;
     [SerializeField] private int MaxParticles = 3;
     [SerializeField] private Vector2 SizeRange;
 
